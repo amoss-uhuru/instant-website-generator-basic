@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instant Website Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 Instant Website Generator</h1>
+    <p>Create a simple business website in seconds</p>
+
+    <input id="name" placeholder="Business Name">
+    <textarea id="desc" placeholder="Business Description"></textarea>
+    <input id="contact" placeholder="Contact Info (Phone/Email)">
+
+    <button onclick="generateSite()">Generate Website</button>
+
+    <div class="actions">
+      <button onclick="downloadSite()">Download HTML</button>
+    </div>
+
+    <h2>Live Preview</h2>
+    <iframe id="preview"></iframe>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
