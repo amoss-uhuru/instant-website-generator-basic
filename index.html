@@ -2,32 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Instant Website Generator</title>
+  <title>Instant Website Generator | Amos Dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
+    
     <h1>🚀 Instant Website Generator</h1>
-    <p>Create a professional business website in seconds</p>
+    <p class="subtitle">Create a professional business website in seconds</p>
 
-    <p class="cta">
-      💼 I also build custom websites for businesses — Contact me!
-    </p>
+    <div class="cta-box">
+      <p>
+        💼 Need a website for your business? I build modern, mobile-friendly websites in 24 hours.
+      </p>
+
+      <div class="contact-buttons">
+        <a href="https://wa.me/254722972078" target="_blank">
+          <button class="whatsapp">💬 WhatsApp Me</button>
+        </a>
+
+        <a href="tel:+254722972078">
+          <button class="call">📞 Call Me</button>
+        </a>
+      </div>
+
+      <p class="email">📧 amoss.uhuru@gmail.com</p>
+    </div>
 
     <input id="name" placeholder="Business Name">
     <textarea id="desc" placeholder="Business Description"></textarea>
     <input id="contact" placeholder="Contact Info (Phone/Email)">
 
-    <button onclick="generateSite()">Generate Website</button>
+    <button onclick="generateSite()">✨ Generate Website</button>
 
     <div class="actions">
-      <button onclick="downloadSite()">Download HTML</button>
+      <button onclick="downloadSite()">⬇️ Download HTML</button>
     </div>
 
     <h2>Live Preview</h2>
     <iframe id="preview"></iframe>
+
   </div>
+
+  <footer>
+    <p>© 2026 Amos Dev | Professional Web Developer</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
