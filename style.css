@@ -1,36 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@500&display=swap');
 
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #2c5364, #6a11cb);
+  background: #0f172a;
   color: white;
-  overflow-x: hidden;
 }
 
-/* PARTICLES CANVAS */
+/* PARTICLES BACKGROUND */
 #particles {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
 }
 
-/* GLASS EFFECT */
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+/* DARK OVERLAY (FIXES YOUR ISSUE) */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 800px;
-  margin: 40px auto;
+  max-width: 750px;
+  margin: 60px auto;
   padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
   text-align: center;
 }
 
@@ -38,19 +42,19 @@ body {
 .title {
   font-family: 'Orbitron', sans-serif;
   font-size: 32px;
-  letter-spacing: 1px;
 }
 
 /* SUBTITLE */
 .subtitle {
-  color: #ddd;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
 /* CTA */
 .cta-box {
   background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 15px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
@@ -73,22 +77,21 @@ button {
   cursor: pointer;
   font-weight: bold;
   color: white;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 15px #00c6ff;
+  transform: scale(1.05);
 }
 
 /* SPECIAL BUTTONS */
 .whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: #25D366;
 }
 
 .call {
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: #22c55e;
 }
 
 /* IFRAME */
@@ -98,11 +101,12 @@ iframe {
   margin-top: 20px;
   border-radius: 10px;
   border: none;
+  background: white;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
-  color: #ccc;
+  color: #aaa;
 }
