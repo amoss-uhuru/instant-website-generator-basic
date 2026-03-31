@@ -1,35 +1,111 @@
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+// particles.js
+(function() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    let ctx = canvas.getContext('2d');
+    let particles = [];
+    let particleCount = 80;
+    let mouseX = null, mouseY = null;
 
-let particles = [];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
 
-for (let i = 0; i < 50; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2,
-    dx: Math.random() - 0.5,
-    dy: Math.random() - 0.5
-  });
-}
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: random(1.5, 4),
+                speedX: random(-0.3, 0.3),
+                speedY: random(-0.3, 0.3),
+                color: `rgba(100, 150, 255, ${random(0.2, 0.6)})`
+            });
+        }
+    }
 
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.fill();
+    function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+        }
+        // connect nearby particles with lines
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(100, 150, 255, 0.2)';
+        ctx.lineWidth = 0.5;
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
 
-    p.x += p.dx;
-    p.y += p.dy;
-  });
+    function updateParticles() {
+        for (let p of particles) {
+            p.x += p.speedX;
+            p.y += p.speedY;
+            // wrap around edges
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
 
-  requestAnimationFrame(draw);
-}
+            // subtle mouse interaction
+            if (mouseX !== null && mouseY !== null) {
+                let dx = mouseX - p.x;
+                let dy = mouseY - p.y;
+                let dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                    let angle = Math.atan2(dy, dx);
+                    let force = (100 - dist) / 100 * 0.5;
+                    p.x -= Math.cos(angle) * force;
+                    p.y -= Math.sin(angle) * force;
+                }
+            }
+        }
+    }
 
-draw();
+    function animate() {
+        if (!canvas || !ctx) return;
+        updateParticles();
+        drawParticles();
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+    });
+    canvas.addEventListener('mouseleave', () => {
+        mouseX = null;
+        mouseY = null;
+    });
+
+    resizeCanvas();
+    initParticles();
+    animate();
+})();
