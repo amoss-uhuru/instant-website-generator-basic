@@ -6,13 +6,13 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 60; i++) {
   particles.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 3,
-    speedX: Math.random() - 0.5,
-    speedY: Math.random() - 0.5
+    size: Math.random() * 2,
+    speedX: (Math.random() - 0.5) * 0.3,
+    speedY: (Math.random() - 0.5) * 0.3
   });
 }
 
@@ -23,7 +23,7 @@ function animate() {
     p.x += p.speedX;
     p.y += p.speedY;
 
-    ctx.fillStyle = "#a855f7";
+    ctx.fillStyle = "rgba(168, 85, 247, 0.6)";
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
     ctx.fill();
