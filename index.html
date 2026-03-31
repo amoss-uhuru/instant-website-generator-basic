@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ProGen | AI Website Builder</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Particle background canvas -->
     <canvas id="particleCanvas"></canvas>
-    
     <div class="content">
         <nav class="navbar">
             <div class="logo">
@@ -21,44 +18,44 @@
                 <span>ProGen</span>
                 <span class="badge">AI Studio</span>
             </div>
-            <div class="contact-buttons">
-                <a href="https://wa.me/254700000000?text=Hello%20I%20need%20a%20website" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="tel:+254700000000" class="contact-btn call"><i class="fas fa-phone-alt"></i> Call</a>
-                <a href="mailto:amoss.uhuru@gmail.com" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a>
+            <div class="nav-links">
+                <a href="#generator">Create</a>
+                <a href="#templates">Templates</a>
             </div>
         </nav>
 
         <header class="hero">
-            <h1>Professional Websites<br><span>generated in <span class="highlight">24 hours</span> or less</span></h1>
-            <p>Choose a category, add your business name, and get a stunning, fully responsive HTML website — ready to download and deploy.</p>
+            <h1>AI-Powered Websites<br><span>Turn your vision into reality — instantly</span></h1>
+            <p>Choose a template, customize, and download a fully responsive, professional website in seconds.</p>
         </header>
 
-        <main class="generator-container">
+        <main id="generator" class="generator-container">
             <div class="card glass">
                 <div class="grid-2">
-                    <!-- Controls -->
                     <div class="controls">
                         <h2><i class="fas fa-sliders-h"></i> Customize your site</h2>
                         <div class="input-group">
                             <label>🏢 Business / Brand Name</label>
-                            <input type="text" id="businessName" value="Elevate Studios">
+                            <input type="text" id="businessName" value="ProGen Studio">
                         </div>
                         <div class="input-group">
-                            <label>✨ Tagline (optional)</label>
-                            <input type="text" id="tagline" value="Innovation meets excellence">
+                            <label>✨ Tagline</label>
+                            <input type="text" id="tagline" value="Crafting digital excellence">
                         </div>
                         <div class="input-group">
-                            <label>📁 Select Website Type</label>
+                            <label>📁 Template Type</label>
                             <div class="category-grid">
                                 <div data-category="business" class="category-card active"><i class="fas fa-briefcase"></i> Business</div>
                                 <div data-category="restaurant" class="category-card"><i class="fas fa-utensils"></i> Restaurant</div>
                                 <div data-category="portfolio" class="category-card"><i class="fas fa-user-tie"></i> Portfolio</div>
-                                <div data-category="shop" class="category-card"><i class="fas fa-store"></i> Shop / Store</div>
+                                <div data-category="shop" class="category-card"><i class="fas fa-store"></i> Shop</div>
+                                <div data-category="agency" class="category-card"><i class="fas fa-chart-line"></i> Agency</div>
+                                <div data-category="tech" class="category-card"><i class="fas fa-microchip"></i> Tech Startup</div>
                             </div>
                             <input type="hidden" id="selectedCategory" value="business">
                         </div>
                         <div class="input-group">
-                            <label>🎨 Primary Color Accent</label>
+                            <label>🎨 Primary Color</label>
                             <div class="color-picker">
                                 <input type="color" id="primaryColor" value="#3b82f6">
                                 <span id="colorValue">#3b82f6</span>
@@ -68,26 +65,37 @@
                             <button id="generateBtn" class="btn-primary"><i class="fas fa-magic"></i> Generate Website</button>
                             <button id="downloadBtn" class="btn-secondary"><i class="fas fa-download"></i> Download HTML</button>
                         </div>
-                        <p class="info-note"><i class="fas fa-code"></i> Professional templates | Responsive | Modern design</p>
+                        <p class="info-note"><i class="fas fa-code"></i> Fully responsive • Modern layouts • AI-crafted content</p>
                     </div>
-
-                    <!-- Live Preview -->
                     <div class="preview-area">
                         <h3><i class="fas fa-eye"></i> Live Preview</h3>
                         <div class="preview-frame">
                             <iframe id="previewIframe" title="Website Preview"></iframe>
                         </div>
-                        <p class="preview-note">↓ Preview updates after clicking "Generate"</p>
+                        <p class="preview-note">Your site updates instantly — click Generate to refresh</p>
                     </div>
                 </div>
             </div>
         </main>
 
-        <footer>
-            <p>© 2025 ProGen — AI Website Builder | Premium business websites in 24h | <a href="mailto:amoss.uhuru@gmail.com">amoss.uhuru@gmail.com</a></p>
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-meteor"></i> ProGen
+                    <p>Professional websites powered by AI</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <a href="https://wa.me/254722972078" target="_blank"><i class="fab fa-whatsapp"></i> +254 722 972 078</a>
+                    <a href="tel:+254722972078"><i class="fas fa-phone-alt"></i> +254 722 972 078</a>
+                    <a href="mailto:amoss.uhuru@gmail.com"><i class="fas fa-envelope"></i> amoss.uhuru@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ProGen. All rights reserved. | Innovate with confidence</p>
+            </div>
         </footer>
     </div>
-
     <script src="particles.js"></script>
     <script src="script.js"></script>
 </body>
