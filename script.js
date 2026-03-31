@@ -24,7 +24,7 @@ function generateSite() {
     }
 
     header {
-      background: #007bff;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
       color: white;
       padding: 60px 20px;
       text-align: center;
@@ -37,6 +37,10 @@ function generateSite() {
 
     .about {
       background: #f4f4f4;
+    }
+
+    .contact {
+      background: #fff;
     }
 
     footer {
@@ -65,7 +69,7 @@ function generateSite() {
   <p>${desc}</p>
 </section>
 
-<section>
+<section class="contact">
   <h2>Contact</h2>
   <p>${contact}</p>
 </section>
