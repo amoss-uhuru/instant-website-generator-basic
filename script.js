@@ -1,88 +1,110 @@
 let generatedHTML = "";
 
 function generateSite() {
-  const name = document.getElementById("name").value;
-  const desc = document.getElementById("desc").value;
-  const contact = document.getElementById("contact").value;
+  const btn = document.getElementById("generateBtn");
+  btn.innerText = "Generating...";
 
-  if (!name || !desc || !contact) {
-    alert("Please fill all fields!");
-    return;
-  }
+  setTimeout(() => {
 
-  generatedHTML = `
-<!DOCTYPE html>
-<html>
-<head>
-  <title>${name}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+    const name = document.getElementById("name").value;
+    const desc = document.getElementById("desc").value;
+    const contact = document.getElementById("contact").value;
+    const template = document.getElementById("template").value;
+
+    if (!name || !desc || !contact) {
+      alert("Please fill all fields!");
+      btn.innerText = "✨ Generate Website";
+      return;
     }
 
-    header {
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+    if (template === "business") {
+      generatedHTML = businessTemplate(name, desc, contact);
     }
 
-    section {
-      padding: 40px 20px;
-      text-align: center;
+    if (template === "restaurant") {
+      generatedHTML = restaurantTemplate(name, desc, contact);
     }
 
-    .about {
-      background: #f4f4f4;
+    if (template === "portfolio") {
+      generatedHTML = portfolioTemplate(name, desc, contact);
     }
 
-    .contact {
-      background: #fff;
-    }
+    document.getElementById("preview").srcdoc = generatedHTML;
 
-    footer {
-      background: #222;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+    btn.innerText = "✨ Generate Website";
 
-    @media (max-width: 600px) {
-      header {
-        padding: 40px 10px;
-      }
-    }
-  </style>
-</head>
-<body>
+  }, 500);
+}
 
-<header>
-  <h1>${name}</h1>
-  <p>${desc}</p>
-</header>
+/* TEMPLATES */
 
-<section class="about">
-  <h2>About Us</h2>
-  <p>${desc}</p>
-</section>
+function businessTemplate(name, desc, contact) {
+  return `
+  <html>
+  <body style="font-family:Arial;margin:0">
+    <header style="background:#007bff;color:white;padding:60px;text-align:center">
+      <h1>${name}</h1>
+      <p>${desc}</p>
+    </header>
 
-<section class="contact">
-  <h2>Contact</h2>
-  <p>${contact}</p>
-</section>
+    <section style="padding:40px;text-align:center">
+      <h2>About</h2>
+      <p>${desc}</p>
+    </section>
 
-<footer>
-  <p>© ${new Date().getFullYear()} ${name}. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+    <section style="padding:40px;text-align:center;background:#f4f4f4">
+      <h2>Contact</h2>
+      <p>${contact}</p>
+    </section>
+  </body>
+  </html>
   `;
+}
 
-  document.getElementById("preview").srcdoc = generatedHTML;
+function restaurantTemplate(name, desc, contact) {
+  return `
+  <html>
+  <body style="font-family:Arial;margin:0;background:#fff8f0">
+    <header style="background:#d35400;color:white;padding:60px;text-align:center">
+      <h1>${name}</h1>
+      <p>${desc}</p>
+    </header>
+
+    <section style="padding:40px;text-align:center">
+      <h2>Our Menu</h2>
+      <p>Delicious meals served daily</p>
+    </section>
+
+    <section style="padding:40px;text-align:center">
+      <h2>Contact</h2>
+      <p>${contact}</p>
+    </section>
+  </body>
+  </html>
+  `;
+}
+
+function portfolioTemplate(name, desc, contact) {
+  return `
+  <html>
+  <body style="font-family:Arial;margin:0;background:#f0f4f8">
+    <header style="background:#222;color:white;padding:60px;text-align:center">
+      <h1>${name}</h1>
+      <p>${desc}</p>
+    </header>
+
+    <section style="padding:40px;text-align:center">
+      <h2>My Work</h2>
+      <p>Projects and achievements</p>
+    </section>
+
+    <section style="padding:40px;text-align:center">
+      <h2>Contact Me</h2>
+      <p>${contact}</p>
+    </section>
+  </body>
+  </html>
+  `;
 }
 
 function downloadSite() {
