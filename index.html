@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Website Generator Pro | Amos Dev</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Website Generator Pro | Amos Dev</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="container">
 
   <h1>🚀 Website Generator Pro</h1>
-  <p class="subtitle">Create professional websites in seconds</p>
+  <p class="subtitle">Create premium business websites in seconds</p>
 
   <div class="cta-box">
-    <p>💼 Need a website? I build modern, mobile-friendly websites in 24 hours.</p>
+    <p>💼 I build modern websites in 24 hours.</p>
 
-    <div class="contact-buttons">
-      <a href="https://wa.me/254722972078" target="_blank">
-        <button class="whatsapp">💬 WhatsApp Me</button>
-      </a>
+    <a href="https://wa.me/254722972078" target="_blank">
+      <button class="whatsapp">💬 WhatsApp</button>
+    </a>
 
-      <a href="tel:+254722972078">
-        <button class="call">📞 Call Me</button>
-      </a>
-    </div>
+    <a href="tel:+254722972078">
+      <button class="call">📞 Call</button>
+    </a>
 
     <p class="email">📧 amoss.uhuru@gmail.com</p>
-    <p class="trust">⚡ Fast delivery • 💼 Trusted • 📱 Mobile-friendly</p>
   </div>
 
-  <!-- TEMPLATE SELECT -->
   <select id="template">
     <option value="business">🏪 Business</option>
     <option value="restaurant">🍽️ Restaurant</option>
     <option value="portfolio">💼 Portfolio</option>
+    <option value="shop">🛒 Shop</option>
+    <option value="gym">🏋️ Gym</option>
+    <option value="corporate">🏢 Corporate</option>
+    <option value="clinic">🏥 Clinic</option>
+    <option value="salon">💄 Salon</option>
+    <option value="realestate">🏡 Real Estate</option>
+    <option value="school">🎓 School</option>
+    <option value="lawyer">⚖️ Lawyer</option>
   </select>
 
-  <input id="name" placeholder="Business / Name">
+  <input id="name" placeholder="Business Name">
   <textarea id="desc" placeholder="Description"></textarea>
   <input id="contact" placeholder="Contact Info">
 
   <button id="generateBtn" onclick="generateSite()">✨ Generate Website</button>
+  <button onclick="downloadSite()">⬇️ Download HTML</button>
 
-  <div class="actions">
-    <button onclick="downloadSite()">⬇️ Download HTML</button>
-  </div>
-
-  <h2>Live Preview</h2>
   <iframe id="preview"></iframe>
 
 </div>
 
 <footer>
-  <p>© 2026 Amos Dev | Professional Web Developer</p>
+  <p>© 2026 Amos Dev</p>
 </footer>
 
 <script src="script.js"></script>
