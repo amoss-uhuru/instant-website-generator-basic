@@ -1,11 +1,11 @@
-// particles.js
+// particles.js 
 (function() {
     const canvas = document.getElementById('particleCanvas');
     if (!canvas) return;
 
     let ctx = canvas.getContext('2d');
     let particles = [];
-    let particleCount = 80;
+    let particleCount = 100;
     let mouseX = null, mouseY = null;
 
     function resizeCanvas() {
@@ -39,7 +39,6 @@
             ctx.fillStyle = p.color;
             ctx.fill();
         }
-        // connect nearby particles with lines
         ctx.beginPath();
         ctx.strokeStyle = 'rgba(100, 150, 255, 0.2)';
         ctx.lineWidth = 0.5;
@@ -62,13 +61,11 @@
         for (let p of particles) {
             p.x += p.speedX;
             p.y += p.speedY;
-            // wrap around edges
             if (p.x < 0) p.x = canvas.width;
             if (p.x > canvas.width) p.x = 0;
             if (p.y < 0) p.y = canvas.height;
             if (p.y > canvas.height) p.y = 0;
 
-            // subtle mouse interaction
             if (mouseX !== null && mouseY !== null) {
                 let dx = mouseX - p.x;
                 let dy = mouseY - p.y;
