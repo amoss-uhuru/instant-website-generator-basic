@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website Generator Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
 <body>
 
-<!-- PARTICLES BACKGROUND -->
+<!-- PARTICLES -->
 <canvas id="particles"></canvas>
 
 <div class="container glass">
@@ -24,14 +35,26 @@
     <p class="email">📧 amoss.uhuru@gmail.com</p>
   </div>
 
-  <!-- KEEP YOUR EXISTING FORM HERE -->
+  <!-- FORM -->
+  <select id="template">
+    <option value="business">🏪 Business</option>
+    <option value="restaurant">🍽️ Restaurant</option>
+    <option value="portfolio">💼 Portfolio</option>
+    <option value="shop">🛒 Shop</option>
+    <option value="gym">🏋️ Gym</option>
+    <option value="corporate">🏢 Corporate</option>
+    <option value="clinic">🏥 Clinic</option>
+    <option value="salon">💄 Salon</option>
+    <option value="realestate">🏡 Real Estate</option>
+    <option value="school">🎓 School</option>
+    <option value="lawyer">⚖️ Lawyer</option>
+  </select>
 
-  <select id="template"> ... </select>
   <input id="name" placeholder="Business Name">
   <textarea id="desc" placeholder="Description"></textarea>
   <input id="contact" placeholder="Contact Info">
 
-  <button id="generateBtn" onclick="generateSite()">✨ Generate Website</button>
+  <button onclick="generateSite()">✨ Generate Website</button>
   <button onclick="downloadSite()">⬇️ Download HTML</button>
 
   <iframe id="preview"></iframe>
@@ -46,3 +69,4 @@
 <script src="particles.js"></script>
 
 </body>
+</html>
